@@ -49,12 +49,16 @@ export const Table = ({props}: TableProps) => {
                 <td className="px-4 py-2">{item.sections.generalInfo[0].Email}</td>
                 <td className="px-4 py-2">{item.sections.generalInfo[0].Phone}</td>
                 <td className='px-4 py-2 flex'>
-                  <a href={item.sections.generalInfo[0]?.GitHub} target="_blank">
+                  {item.sections.generalInfo[0]?.GitHub && (
+                  <a href={`https://${item.sections.generalInfo[0]?.GitHub}`} target="_blank">
                     <img className='w-6' src='https://img.icons8.com/?size=100&id=62856&format=png&color=FFFFFF' alt='Github'/>
                   </a>
-                  <a href={item.sections.generalInfo[0]?.LinkedIn} target='_blank'>
+                  )}
+                  {item.sections.generalInfo[0].LinkedIn && (
+                    <a href={`https://${item.sections.generalInfo[0]?.LinkedIn}`} target='_blank'>
                     <img className='w-6' src='https://img.icons8.com/?size=100&id=13930&format=png&color=000000' alt='linkedin'/>
                   </a>
+                  )}
                 </td>
                 <td className="px-4 py-2 text-blue-500">
                   <Link to={`/view/${item.filename}`} onClick={() => setUrl(item.filename)} target='blank'>

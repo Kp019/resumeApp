@@ -63,7 +63,7 @@ function ResumeBuilder({ personalDetails, education, workExperience, skills, pro
           <div>
             <PDFDownloadLink document={<MyDocument data={data} />} fileName="resume.pdf">
                 {({ loading }) => (
-                    <button className="bg-blue-500 text-white p-2 rounded">
+                    <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-900 duration-300">
                         {loading ? 'Preparing document...' : 'Download PDF'}
                     </button>
                 )}

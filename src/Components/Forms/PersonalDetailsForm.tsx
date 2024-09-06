@@ -33,7 +33,10 @@ function PersonalDetailsForm({ onSubmit, personalDetails, onRemoveSection }:Pers
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    const trimmedFormData = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()])
+    );
+    onSubmit(trimmedFormData);
   };
 
   const handleRemove = () => {

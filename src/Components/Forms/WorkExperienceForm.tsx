@@ -39,7 +39,10 @@ function WorkExperienceForm({ onSubmit, onRemove, onClear, workExperience }:Prop
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    const trimmedFormData = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()])
+    );
+    onSubmit(trimmedFormData);
     setFormData({
       company: '',
       position: '',
@@ -121,7 +124,7 @@ function WorkExperienceForm({ onSubmit, onRemove, onClear, workExperience }:Prop
                 <div>
                   <h3 className="text-lg font-semibold">{exp.company}</h3>
                   <p className="text-gray-600">{exp.position}</p>
-                  <p className="text-gray-500">{exp.startDate} - {exp.endDate}</p>
+                  {exp.startDate && exp.endDate && (<p className="text-gray-500">{exp.startDate} - {exp.endDate}</p>)}
                   <p>{exp.description}</p>
                 </div>
                 <button

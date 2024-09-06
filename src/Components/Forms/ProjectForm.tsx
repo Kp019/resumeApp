@@ -31,7 +31,15 @@ function ProjectsForm({ onSubmit, onRemove, onClear, projects }:ProjectsFormProp
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    const trimmedFormData = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()])
+    );
+    onSubmit(trimmedFormData);
+    setFormData({
+      title: '',
+      description: '',
+      link: '',
+    });
     setFormData({
       title: '',
       description: '',

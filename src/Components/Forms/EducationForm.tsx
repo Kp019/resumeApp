@@ -27,12 +27,15 @@ function EducationForm({ onSubmit, onRemove, onClear, education }: EducationForm
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value});
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(formData);
+    const trimmedFormData = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()])
+    );
+    onSubmit(trimmedFormData);
     setFormData({
       school: '',
       degree: '',
@@ -111,8 +114,8 @@ function EducationForm({ onSubmit, onRemove, onClear, education }: EducationForm
               <li key={index} className="p-4 border rounded-md flex justify-between items-cente bg-white">
                 <div>
                   <h3 className="text-lg font-semibold">{edu.school}</h3>
-                  <p className="text-gray-600">{edu.degree} in {edu.fieldOfStudy}</p>
-                  <p className="text-gray-500">{edu.startDate} - {edu.endDate}</p>
+                  {edu.degree && (<p className="text-gray-600">{edu.degree} in {edu.fieldOfStudy}</p>)}
+                  {edu.startDate && edu.endDate && (<p className="text-gray-500">{edu.startDate} - {edu.endDate}</p>)}
                 </div>
                 <button
                   onClick={() => onRemove(index)}

@@ -53,9 +53,9 @@ export const Home = () => {
                 <h1 className="lg:text-7xl sm:text-5xl text-5xl font-bold lg:mr-20">Welcome to Your Ultimate Resume Solutions</h1>
                 <h1 className="text-3xl  font-bold sm:pt-20 pt-5 text-slate-500">Our Services</h1>
                 <div className="flex gap-5 pointer-events-auto flex-wrap">
-                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm" onClick={()=>navigate('/ResumeAnalyser')}>Resume Analyser</button>
-                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm" onClick={()=>window.location.href = '/ResumeBuilder'}>Resume Builder</button>
-                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm" onClick={()=>window.location.href = '/ResumeShortlister'}>Resume Shortlister</button>
+                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm hover:scale-105 hover:bg-gradient-to-bl hover:from-slate-900 hover:to-gray-600 duration-300" onClick={()=>navigate('/ResumeAnalyser')}>Resume Analyser</button>
+                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm hover:scale-105 hover:bg-gradient-to-bl hover:from-slate-900 hover:to-gray-600 duration-300" onClick={()=>window.location.href = '/ResumeBuilder'}>Resume Builder</button>
+                    <button className=" bg-gradient-to-tr from-gray-900 to-slate-900 border border-blue-950 px-6 py-2 rounded-md sm:text-xl text-sm hover:scale-105 hover:bg-gradient-to-bl hover:from-slate-900 hover:to-gray-600 duration-300" onClick={()=>window.location.href = '/ResumeShortlister'}>Resume Shortlister</button>
                 </div>
             </div>
             <div className="relative w-full h-screen sm:translate-x-40 z-0 scale-150">

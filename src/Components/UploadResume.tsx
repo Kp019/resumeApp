@@ -74,7 +74,7 @@ const UploadResumes = () => {
     selectedFiles.forEach((file) => formData.append("files", file));
     console.log(jobTitle);
     
-    formData.append("jobTitle", jobTitle)
+    formData.append("jobTitle", jobTitle.trim())
     formData.append("userState", JSON.stringify(user?.email));
 
     console.log(formData);
@@ -142,7 +142,7 @@ const UploadResumes = () => {
 
   return (
     <div className="flex flex-col sm:mt-0 sm:gap-20 gap-10 relative justify-center items-center overflow-y-auto overflow-x-hidden w-full">
-      <div className=' flex md:w-[700px] flex-col justify-center items-center w-full mt-80 gap-10 sm:px-14 px-5 py-5 shadow-2xl bg-gradient-to-tr from-gray-900 border border-slate-700 rounded-md text-white'>
+      <div className=' flex md:w-[700px] flex-col w-full mt-80 gap-10 sm:px-14 px-5 py-5 shadow-2xl bg-gradient-to-tr from-gray-900 border border-slate-700 rounded-md text-white'>
         <h1 className=' text-4xl capitalize font-bold text-center'>Resume Shortlister</h1>
         <div className="flex flex-col justify-center gap-2 pointer-events-auto">
             <input
@@ -158,7 +158,7 @@ const UploadResumes = () => {
                 className="sm:w-96 border p-2 rounded-md text-black"
                 type="text"
                 value={requirements}
-                onChange={(e) => setRequirements(e.target.value)}
+                onChange={(e) => setRequirements(e.target.value.trim())}
                 placeholder="Enter job requirements"
                 />
               {errors.requirements && <div className="text-red-500">{errors.requirements}</div>}
@@ -201,22 +201,24 @@ const UploadResumes = () => {
             ))}
           </ul>
         </div>
-        <div className='pointer-events-auto flex flex-wrap gap-5'>
+        <div className='pointer-events-auto flex flex-wrap gap-5 items-center'>
           <button
-            className="px-4 py-2 bg-purple-700 text-white rounded-md"
+            className="px-4 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-950 duration-300"
             onClick={handleSubmit}
             >
             Upload and Process
           </button>
           {histroyData.length>0?
           <button
-          className="px-4 py-2 border border-purple-700 text-white rounded-md"
+          className="px-4 py-2 border border-purple-700 text-white rounded-md hover:bg-purple-500 duration-300"
           onClick={()=>window.location.href='/candidates'}
           >
             View history
           </button>
           :''}
-          <LogoutButton/>
+          <div className=' hover:text-red-500 duration-300'>
+            <LogoutButton/>
+          </div>
           </div>
       </div>
       <div className={`my-10 text-white pointer-events-auto`}>{data.length > 0 ? <Table props={data} />:''}</div>

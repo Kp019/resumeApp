@@ -137,7 +137,7 @@ function Admin() {
     return (
       <div className="bg-gray-900 h-[100vh] flex flex-col justify-center items-center text-white gap-5">
         <div className="text-5xl font-bold text-center">Page not Found</div>
-        <div onClick={()=>{window.location.href='/'}} className="px-4 py-1 bg-blue-500 rounded-md">Home</div>
+        <div onClick={()=>{window.location.href='/'}} className="px-4 py-1 bg-blue-500 rounded-md cursor-pointer">Home</div>
       </div>
     )
   }
@@ -157,7 +157,7 @@ function Admin() {
             className="text-2xl cursor-pointer text-slate-400"
             onClick={() => (window.location.href = "/")}
           >
-            Back
+            Home
           </div>
         </div>
         <div className="flex flex-col justify-center items-center pt-20">
