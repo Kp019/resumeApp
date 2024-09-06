@@ -168,7 +168,8 @@ function ViewResult() {
   }
 
   return (
-    <div className="p-4 bg-gradient-to-tr from-slate-900 to-gray-900 text-white h-[100vh] overflow-hidden w-screen lg:px-40">
+    <div className="h-[100vh] overflow-hidden">
+    <div className="p-4 bg-gradient-to-tr from-slate-900 to-gray-900 text-white flex flex-col overflow-y-auto w-screen lg:px-40 h-full">
       <div className="flex w-full justify-between items-center py-10">
         <h1 className="text-3xl font-bold mb-4">Resume History</h1>
         <div className="text-xl px-4 py-2 bg-slate-500 rounded-md cursor-pointer" onClick={()=>window.location.href='/ResumeShortlister'}>back</div>
@@ -196,8 +197,9 @@ function ViewResult() {
           className="w-full md:w-1/4 px-3 py-2 mb-2 md:mb-0 text-black rounded-md"
         />
       </div>
-      <div className="w-full overflow-y-auto">
-      <table className="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto rounded-md">
+      <div className="w-full h-[70vh] overflow-y-auto mb-20">
+        <div className=" overflow-auto">
+      <table className="table-auto overflow-y-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-x-auto rounded-md">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th className="px-6 py-3 font-bold">Date</th>
@@ -235,6 +237,8 @@ function ViewResult() {
         </tbody>
       </table>
       </div>
+      </div>
+    </div>
     </div>
   );
 }
